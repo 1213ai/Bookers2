@@ -1,0 +1,30 @@
+<body>
+<!--placeholderの意味が分からない。その後の記述があっているかどうかも-->
+<div class="container">
+  <div class="row">
+   <div class="col-lg-4"></div>
+   <div class="col-lg-4">
+    <h2>User info</h2>
+ <%= form_with model:@user, local:true do |f| %>
+  <div class="form-group">
+   <label for="inputName">Name</label>
+   <div><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name", class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <label for="inputImage">Image</label>
+    <div><%= f.attachment_field :profile_image, placeholder: "Image"%></div>
+   </div>
+  <div class="form-group">
+   <label for="inputIntroduction_id">Introduction</label>
+   <div><%= f.text_area :introduction_id, autofocus: true, id:"inputIntroduction_id", placeholder:"Introduction", class: "form-control input-lg" %></div>
+  </div>
+
+
+  <div><%= f.submit 'Update User', class:"btn btn-success" %></div>
+<% end %>
+</div>
+ <div class="col-lg-4"></div>
+</div>
+ </div>
+</div>
+</body>

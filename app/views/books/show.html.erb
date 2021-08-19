@@ -1,0 +1,14 @@
+<%= flash[:notice] %>
+<h2>Book detail</h2>
+    <table class="table">
+       <tbody>
+         <tr>
+           <!--マイ画像を入れること-->
+           <td><%= @book.user.name %></td>
+           <td><%= @book.title %></td>
+           <td><%= @book.body %></td>
+           <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %></td>
+           <td><%= link_to "Destroy", destroy_book_path(@book.id), class: "btn btn-danger", method: :delete, "dete-confirm" =>"Are you sure?" %></td>
+           </tr>
+       </tbody>
+    </table>
