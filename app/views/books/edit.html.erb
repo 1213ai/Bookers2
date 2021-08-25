@@ -13,11 +13,11 @@
 <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title, class: "form-control" %>
-  <h4>Body</h4>
+  <h4>Opinion</h4>
   <%= f.text_area :body, class: "form-control" %>
   <div><%= f.submit 'Update Book', class: "btn btn-success mt-2 mb-2" %></div>
 
- <%= link_to "Edit", edit_book_path(@book.id), class: "link" %>|<%= link_to "Back", '/books', class: "link" %>
+ <%= link_to "Show", book_path(@book.id) %>|<%= link_to "Back", '/books' %>
 
 <% end %>
 <div class="col-lg-4"></div>

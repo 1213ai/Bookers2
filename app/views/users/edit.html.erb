@@ -1,10 +1,15 @@
 <body>
-<!--placeholderの意味が分からない。その後の記述があっているかどうかも-->
 <div class="container">
   <div class="row">
    <div class="col-lg-4"></div>
    <div class="col-lg-4">
     <h2>User info</h2>
+    <% if @user.errors.any? %>
+        <%= @user.errors.count %>errors prohibited this user from being saved:
+        <% @user.errors.full_messages.each do |message| %>
+         <%= message %>
+        <% end %>
+    <% end %>
  <%= form_with model:@user, local:true do |f| %>
   <div class="form-group">
    <label for="inputName">Name</label>
@@ -16,7 +21,7 @@
    </div>
   <div class="form-group">
    <label for="inputIntroduction_id">Introduction</label>
-   <div><%= f.text_area :introduction_id, autofocus: true, id:"inputIntroduction_id", placeholder:"Introduction", class: "form-control input-lg" %></div>
+   <div><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction_id", placeholder:"Introduction", class: "form-control input-lg" %></div>
   </div>
 
 
