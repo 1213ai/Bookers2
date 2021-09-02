@@ -63,9 +63,21 @@
            <td><%= @book.title %></td>
            <td><%= @book.body %></td>
 
+           <td>
+            <% if @book.favorited_by?(current_user) %>
+            <%= link_to book_favorites_path(@book), method: :delete do %>
+             ♥<%= @book.favorites.count %>
+            <% end %>
+          <% else %>
+            <%= link_to book_favorites_path(@book), method: :post do %>
+             ♡<%= @book.favorites.count %>
+            <% end %>
+            <% end %>
+           </td>
+
            <% if user_signed_in? && current_user.id == @book.user_id %>
            <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %></td>
-           <td><%= link_to "Destroy", destroy_book_path(@book.id), class: "btn btn-danger", method: :delete, "dete-confirm" =>"Are you sure?" %></td>
+           <td><%= link_to "Destroy", book_path(@book.id), class: "btn btn-danger", method: :delete, "dete-confirm" =>"Are you sure?" %></td>
            <% end %>
 
            </tr>

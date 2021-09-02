@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
    has_many :articles, dependent: :destroy
    has_many :books, dependent: :destroy
+   has_many :favorites, dependent: :destroy
 
    validates :name, length: { minimum:2, maximum: 20 }
    validates :name, uniqueness: true
